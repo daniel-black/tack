@@ -14,6 +14,7 @@ export const ModeToggle = () => {
       <div className='flex'>
         {MODES.map(m =>
           <ModeRadioInput
+            key={m}
             mode={m}
             stateMode={stateMode}
             setStateMode={() => setStateMode(m)}

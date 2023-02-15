@@ -45,7 +45,7 @@ export function CodeBlock({ shades, shadeName }: CodeBlockProps) {
         <span>{`  theme: {\n`}</span>
         <span>{`    colors: {`}</span>
         {shades.map((shade, index) =>
-          <span>
+          <span key={index}>
             {`\n      '${shadeName}-${SHADES[index]}': '${hslToHex(shade)}',`}
           </span>
         )}
