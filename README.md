@@ -1,0 +1,1 @@
+A basic app for tinkering around with color palettes for TailwindCSS
