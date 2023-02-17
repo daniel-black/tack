@@ -10,11 +10,11 @@ export const ModeToggle = () => {
   const isEditing = mode === 'edit';
 
   return (
-    <div className='flex'>
-      <div>
+    <div className='flex w-full'>
+      <div className='w-1/2'>
         <label
           htmlFor='edit'
-          className={`w-24 rounded-l capitalize select-none py-1 cursor-pointer ${isEditing ? 'bg-slate-200' : 'bg-slate-100 hover:bg-slate-300'} flex justify-center items-center space-x-1`}
+          className={`w-full rounded-l capitalize select-none py-1 cursor-pointer ${isEditing ? 'bg-slate-200' : 'bg-slate-100 hover:bg-slate-300'} flex justify-center items-center space-x-1`}
         >
           <SlidersIcon />
           <span>Edit</span>
@@ -28,10 +28,10 @@ export const ModeToggle = () => {
           className='hidden'
         />
       </div>
-      <div>
+      <div className='w-1/2'>
         <label
           htmlFor='view'
-          className={`w-24 rounded-r capitalize select-none py-1 cursor-pointer ${!isEditing ? 'bg-slate-200' : 'bg-slate-100 hover:bg-slate-300'} flex justify-center items-center space-x-1`}
+          className={`w-full rounded-r capitalize select-none py-1 cursor-pointer ${!isEditing ? 'bg-slate-200' : 'bg-slate-100 hover:bg-slate-300'} flex justify-center items-center space-x-1`}
         >
           <PaletteIcon />
           <span>View</span>
