@@ -8,5 +8,5 @@ export function SelectedColumnIndicator({ selectedShadeIndex, index }: SelectedC
 
   if (!isSelected) return null;
 
-  return <span className="z-10 absolute h-[5px] -top-[8px] w-full bg-gray-700 rounded-full shadow-sm" />
+  return <span className="z-10 absolute h-[5px] -top-[8px] w-full bg-gray-600 rounded-full shadow-sm" />
 }

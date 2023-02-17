@@ -1,7 +1,7 @@
 'use client';
 
-import { SHADES } from "@/constants";
 import type { HSL } from "@/types";
+import { SHADES } from "@/constants";
 import { hslToHex } from "@/utils";
 import { useState } from "react";
 import { useSetAtom } from 'jotai';
@@ -23,13 +23,13 @@ export function CodeBlock({ shades, shadeName }: CodeBlockProps) {
   }
 
   return (
-    <div className="absolute top-56 min-w-[30%] left-[35%] z-20 shadow-lg rounded-lg border-2 bg-gray-100">
-      <div className="flex items-center justify-between px-3 bg-gray-200 text-gray-500 py-2">
+    <div className="absolute top-56 min-w-[30%] left-[35%] z-20 shadow-lg rounded-lg bg-gray-700">
+      <div className="flex items-center justify-between rounded-t-lg px-3 bg-gray-800 text-gray-400 py-2">
         <span className="flex items-center"><FileIcon /> tailwind.config.js</span>
         <div className="space-x-2 flex items-center">
           <button
             onClick={copyText}
-            className='px-3 py-1 rounded bg-emerald-200 text-emerald-600 border border-emerald-400'
+            className='px-2 py-1 rounded bg-gray-200 text-gray-600 hover:bg-gray-50'
           >
             {copied 
               ? <span className="flex items-center space-x-1"><CheckSquareIcon /> Copied</span>
@@ -38,11 +38,11 @@ export function CodeBlock({ shades, shadeName }: CodeBlockProps) {
           </button>
           <button
             onClick={() => setShowCodeBlock(false)}
-            className='rounded border bg-rose-50 text-red-600 border-rose-400 py-1 px-3'
+            className='rounded bg-gray-500 text-gray-800 hover:bg-gray-400 py-1 px-3'
           >X</button>
         </div>
       </div>
-      <pre className="font-mono px-10 py-5">
+      <pre className="font-mono px-10 py-5 text-gray-300">
         <span>{`module.exports = {\n`}</span>
         <span>{`  theme: {\n`}</span>
         <span>{`    colors: {`}</span>
