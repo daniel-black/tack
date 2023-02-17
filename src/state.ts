@@ -7,9 +7,9 @@ export const shadeNameAtom = atom('');
 export const modeAtom = atom<Mode>('edit');
 
 // Color Controls
-export const hueAtom = atom(360);
-export const saturationAtom = atom(100);
-export const lightnessAtom = atom(100);
+export const hueAtom = atom(240);
+export const saturationAtom = atom(75);
+export const lightnessAtom = atom(75);
 
 // Shades
 export const selectedShadeIndexAtom = atom(0);
