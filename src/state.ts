@@ -1,4 +1,5 @@
 import { atom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils'
 
 import { INITIAL_SHADES } from './constants';
 import type { HSL, Mode } from './types';

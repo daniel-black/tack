@@ -18,7 +18,8 @@ export function CodeBlock({ shades, shadeName }: CodeBlockProps) {
   const setShowCodeBlock = useSetAtom(codeBlockAtom);
 
   function copyText() {
-    window?.navigator.clipboard.writeText('hello world');
+    const codeText = buildTailwindConfigCodeText(shades, shadeName);
+    window?.navigator.clipboard.writeText(codeText);
     setCopied(true);
   }
 
@@ -58,5 +59,27 @@ export function CodeBlock({ shades, shadeName }: CodeBlockProps) {
         <span>{'\n};'}</span>
       </pre>
     </div>
+  );
+}
+
+function buildTailwindConfigCodeText(shades: HSL[], shadeName: string) {
+  let colorString = '';
+  
+  shades.forEach((shade, index) => {
+    const base = `      '${shadeName}-${SHADES[index]}': '${hslToHex(shade)}',${index === shades.length - 1 ? '' : '\n'}`;
+    colorString += base;
+  });
+  
+
+  return (
+    `module.exports = {
+      theme: {
+        colors: {
+  ` +
+    colorString +
+    `
+        }
+      },
+    };`
   );
 }
