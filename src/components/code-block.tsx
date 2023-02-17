@@ -6,7 +6,7 @@ import { hslToHex } from "@/utils";
 import { useState } from "react";
 import { useSetAtom } from 'jotai';
 import { codeBlockAtom } from "@/state";
-import { CheckSquareIcon, CopyIcon, FileIcon } from "./icons";
+import { CheckSquareIcon, CopyIcon, FileIcon, XIcon } from "./icons";
 
 type CodeBlockProps = {
   shades: HSL[];
@@ -38,8 +38,10 @@ export function CodeBlock({ shades, shadeName }: CodeBlockProps) {
           </button>
           <button
             onClick={() => setShowCodeBlock(false)}
-            className='rounded bg-gray-500 text-gray-800 hover:bg-gray-400 py-1 px-3'
-          >X</button>
+            className='rounded bg-gray-500 text-gray-800 hover:bg-gray-400 py-1 px-1'
+          >
+            <XIcon />
+          </button>
         </div>
       </div>
       <pre className="font-mono px-10 py-5 text-gray-300">

@@ -22,6 +22,10 @@ export default function RootPage() {
           <ModeToggle />
           <ShowCodeButton />
         </div>
+        <div className="w-full">
+          <h1 className="text-right font-bold text-lg">Tack</h1>
+          <p className="text-right text-xs italic">by db</p>
+        </div>
       </section>
       <Palette />
     </div>
