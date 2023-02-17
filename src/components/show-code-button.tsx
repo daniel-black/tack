@@ -14,7 +14,7 @@ export const ShowCodeButton = () => {
     >
       <div className="flex items-center justify-center space-x-3">
         <CodeIcon isSmall={false} />
-        <span className="w-28 text-xl">{showCodeBlock ? 'Show' : 'Hide'} Code</span>
+        <span className="w-28 text-xl">{showCodeBlock ? 'Hide' : 'Show'} Code</span>
       </div>
     </button>
   );

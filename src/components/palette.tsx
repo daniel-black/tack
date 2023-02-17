@@ -4,6 +4,7 @@ import { hueAtom, lightnessAtom, modeAtom, saturationAtom, selectedShadeIndexAto
 import { useAtomValue, useAtom, useSetAtom } from 'jotai';
 import { INITIAL_HSL_COLOR } from "@/constants";
 import { isSameShade } from "@/utils";
+import { SelectedColumnIndicator } from "./selected-column-indicator";
 
 export const Palette = () => {
   const [selectedShadeIndex, setSelectedShadeIndex] = useAtom(selectedShadeIndexAtom);
@@ -32,16 +33,21 @@ export const Palette = () => {
   return (
     <main id="palette" className={`w-screen h-screen flex flex-row ${mode === 'edit' ? 'p-1 space-x-1' : ''}`}>
       {shades.map((shade, index) =>
-        <ShadeColumn
-          key={index}
-          color={shade}
-          index={index}
-          selectedIndex={selectedShadeIndex}
-          mode={mode}
-          select={() => setSelectedShadeIndex(index)}
-          clear={() => clearShade(index)}
-          load={() => loadShade(index)}
-        />
+        <div key={index} className={`w-full h-full relative`}>
+          <SelectedColumnIndicator
+            selectedShadeIndex={selectedShadeIndex}
+            index={index}
+          />
+          <ShadeColumn
+            color={shade}
+            index={index}
+            // selectedIndex={selectedShadeIndex}
+            mode={mode}
+            select={() => setSelectedShadeIndex(index)}
+            clear={() => clearShade(index)}
+            load={() => loadShade(index)}
+          />
+        </div>
       )}
     </main>
   );
