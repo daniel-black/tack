@@ -1,27 +1,49 @@
 'use client';
 
-import { MODES } from '@/constants';
 import { modeAtom } from '@/state';
 import { useAtom } from 'jotai';
 import { PaletteIcon, SlidersIcon } from './icons';
-import { ModeRadioInput } from './mode-radio-input';
 
 export const ModeToggle = () => {
-  const [stateMode, setStateMode] = useAtom(modeAtom);
+  const [mode, setMode] = useAtom(modeAtom);
+
+  const isEditing = mode === 'edit';
 
   return (
-    <div className='space-y-1'>
-      <p className=''>Mode</p>
-      <div className='flex'>
-        {MODES.map(m =>
-          <ModeRadioInput
-            key={m}
-            mode={m}
-            icon={m === 'edit' ? <SlidersIcon /> : <PaletteIcon />}
-            stateMode={stateMode}
-            setStateMode={() => setStateMode(m)}
-          />
-        )}
+    <div className='flex'>
+      <div>
+        <label
+          htmlFor='edit'
+          className={`w-24 rounded-l capitalize select-none py-1 cursor-pointer ${isEditing ? 'bg-slate-200' : 'bg-slate-100 hover:bg-slate-300'} flex justify-center items-center space-x-1`}
+        >
+          <SlidersIcon />
+          <span>Edit</span>
+        </label>
+        <input
+          type="radio"
+          name='edit'
+          id='edit'
+          checked={isEditing}
+          onChange={() => setMode('edit')}
+          className='hidden'
+        />
+      </div>
+      <div>
+        <label
+          htmlFor='view'
+          className={`w-24 rounded-r capitalize select-none py-1 cursor-pointer ${!isEditing ? 'bg-slate-200' : 'bg-slate-100 hover:bg-slate-300'} flex justify-center items-center space-x-1`}
+        >
+          <PaletteIcon />
+          <span>View</span>
+        </label>
+        <input
+          type="radio"
+          name='view'
+          id='view'
+          checked={!isEditing}
+          onChange={() => setMode('view')}
+          className='hidden'
+        />
       </div>
     </div>
   );

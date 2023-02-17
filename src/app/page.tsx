@@ -18,9 +18,9 @@ export default function RootPage() {
       {showCodeBlock && <CodeBlock shades={shades} shadeName={shadeName} />}
       <section className="p-5 text-gray-700 flex space-x-10">
         <Controls />
-        <div className="w-full flex justify-between items-end">
-          <ModeToggle />
+        <div className="w-full space-y-2">
           <ExportPalette />
+          <ModeToggle />
         </div>
       </section>
       <Palette />
