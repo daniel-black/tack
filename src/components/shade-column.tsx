@@ -40,30 +40,25 @@ export const ShadeColumn = ({
       style={sectionStyle}
       onClick={handleShadeColumnClick}
     >
-      {/* {isEditing &&
-        <div className="flex flex-col items-center space-y-2">
-          <span className="opacity-30 bg-gray-100 border border-gray-300 px-2 rounded select-none font-mono w-fit">{shade}</span>
-          <button
-            onClick={clear}
-            className='text-xs'
-          >
-            Clear
-          </button>
-        </div>
-      }
-      {isSelected && <span className="h-[5px] w-[60%] left-[20%] rounded-full bg-gray-200 border border-gray-300 absolute -top-2.5 z-10" />} */}
-      <ShadeColumnContent shade={shade} clear={clear} />
+      <ShadeColumnContent
+        shade={shade}
+        isEditing={isEditing}
+        clear={clear}
+      />
     </section>
   );
 }
 
 type ShadeColumnContentProps = {
   shade: string;
+  isEditing: boolean;
   clear: () => void;
 };
 
-function ShadeColumnContent({ shade, clear }: ShadeColumnContentProps) {
+function ShadeColumnContent({ shade, isEditing, clear }: ShadeColumnContentProps) {
   const [showSettings, setShowSettings] = useState(false);
+
+  if (!isEditing) return null;
 
   function toggleSettings(e: React.MouseEvent<HTMLButtonElement>) {
     e.stopPropagation();

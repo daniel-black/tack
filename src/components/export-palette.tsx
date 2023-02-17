@@ -2,6 +2,7 @@
 
 import { codeBlockAtom } from "@/state";
 import { useAtom } from "jotai";
+import { CodeIcon } from "./icons";
 
 export const ExportPalette = () => {
   const [showCodeBlock, setShowCodeBlock] = useAtom(codeBlockAtom);
@@ -12,7 +13,7 @@ export const ExportPalette = () => {
         onClick={() => setShowCodeBlock(!showCodeBlock)}
         className="px-3 py-1 rounded bg-emerald-200"
       >
-        {showCodeBlock ? 'hide' : 'show'} config code
+        <CodeIcon /> {showCodeBlock ? 'hide' : 'show'} config code
       </button>
     </div>
   );
