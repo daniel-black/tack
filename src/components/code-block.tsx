@@ -63,23 +63,17 @@ export function CodeBlock({ shades, shadeName }: CodeBlockProps) {
 }
 
 function buildTailwindConfigCodeText(shades: HSL[], shadeName: string) {
-  let colorString = '';
-  
-  shades.forEach((shade, index) => {
-    const base = `      '${shadeName}-${SHADES[index]}': '${hslToHex(shade)}',${index === shades.length - 1 ? '' : '\n'}`;
-    colorString += base;
-  });
-  
+  let result = "module.exports = {\n";
+  result += "  theme: {\n";
+  result += "    colors: {\n";
 
-  return (
-    `module.exports = {
-      theme: {
-        colors: {
-  ` +
-    colorString +
-    `
-        }
-      },
-    };`
-  );
+  shades.forEach((shade, index) => {
+    result += `      '${shadeName}-${SHADES[index]}': '${hslToHex(shade)}',\n`;
+  });
+
+  result += "    },\n";
+  result += "  },\n";
+  result += "};";
+
+  return result
 }

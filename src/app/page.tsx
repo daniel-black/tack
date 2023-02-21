@@ -7,6 +7,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Palette } from "@/components/palette";
 import { codeBlockAtom, shadeNameAtom, shadesAtom } from "@/state";
 import { useAtomValue } from "jotai";
+import { WindIcon } from "@/components/icons";
 
 export default function RootPage() {
   const showCodeBlock = useAtomValue(codeBlockAtom);
@@ -23,8 +24,11 @@ export default function RootPage() {
           <ShowCodeButton />
         </div>
         <div className="w-full">
-          <h1 className="text-right font-bold text-lg">Tack</h1>
-          <p className="text-right text-xs italic">by db</p>
+          <h1 className="font-bold text-xl flex items-center justify-end space-x-1">
+            <span>Tack</span>
+            <WindIcon isSmall={false} />
+          </h1>
+          <p className="text-right text-xs italic text-gray-600">by db</p>
         </div>
       </section>
       <Palette />
