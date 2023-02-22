@@ -1,5 +1,6 @@
 'use client';
 
+import type { HSL } from "@/types";
 import { useState } from "react";
 import { SettingsIcon } from "./icons";
 
@@ -36,8 +37,8 @@ export function ShadeColumnContent({ shade, isEditing, clear }: ShadeColumnConte
           <SettingsIcon />
         </button>
       </div>
-      <div className={`${showSettings ? 'opacity-30 z-10' : 'opacity-0'} transition-all duration-100 bg-gray-100 border border-gray-300 px-3 py-1.5 rounded select-none font-mono w-fit h-fit`}>
-        <button onClick={handleClearClick}>
+      <div className={`${showSettings ? 'opacity-30 z-10' : 'opacity-0'} transition-all duration-100 bg-gray-100 border border-gray-300 px-3 py-1.5 rounded select-none font-mono text-sm w-fit h-fit`}>
+        <button onClick={handleClearClick} className='hover:underline'>
           Clear
         </button>
       </div>

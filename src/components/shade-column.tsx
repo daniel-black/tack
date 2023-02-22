@@ -1,7 +1,7 @@
 import { INITIAL_HSL_COLOR, SHADES } from "@/constants";
 import type { HSL, Mode } from "@/types";
 import { getHsl } from "@/utils";
-import { ShadeColumnContent } from "./shade-column-contents";
+import { ShadeColumnContent } from "./shade-column-content";
 
 type ShadeColumnProps = {
   color: HSL;
