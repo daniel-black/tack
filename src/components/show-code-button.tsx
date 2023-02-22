@@ -10,7 +10,7 @@ export const ShowCodeButton = () => {
   return (
     <button
       onClick={() => setShowCodeBlock(!showCodeBlock)}
-      className="px-3 py-3 rounded bg-gray-700 hover:bg-gray-800 text-gray-50 w-full"
+      className="px-3 py-2 rounded bg-gray-700 hover:bg-gray-800 text-gray-50 w-full"
     >
       <div className="flex items-center justify-center space-x-3">
         <CodeIcon isSmall={false} />
